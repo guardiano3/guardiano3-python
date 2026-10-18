@@ -1,0 +1,111 @@
+name: CI
+
+# Pull requests into main, and release.yml before it publishes. Validate
+# locally before opening a pull request.
+on:
+  pull_request:
+    branches: [main]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    # The committed generated package must be exactly what openapi/v1.json
+    # produces. A hand edit to it, or a contract change without regenerating,
+    # fails here.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/generate.sh
+      - name: Generated code matches the contract
+        run: |
+          if [ -n "$(git status --porcelain -- src/guardiano3_generated)" ]; then
+            echo "::error::src/guardiano3_generated does not match openapi/v1.json. Run ./scripts/generate.sh and commit the result."
+            git status --short -- src/guardiano3_generated | head -50
+            exit 1
+          fi
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install ruff mypy types-python-dateutil -e ".[live]"
+      - run: ruff check src/guardiano3 tests
+      # The hand-written package only; generated code is the generator's.
+      - run: mypy src/guardiano3
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # The oldest supported version and the newest.
+        python-version: ["3.10", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[live]" pytest
+      - run: pytest -q
+
+  package:
+    # What a customer gets is the wheel, not this checkout. Build it, check it
+    # the way PyPI will, then install it into an empty environment and import
+    # every module -- that catches a missing dependency or a package left out
+    # of the wheel, which tests run from the checkout cannot.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install build twine
+      - run: python -m build
+      - run: twine check --strict dist/*
+      - name: Install the wheel into an empty environment and import everything
+        run: |
+          python -m venv /tmp/clean
+          /tmp/clean/bin/pip install dist/*.whl
+          cd /tmp
+          /tmp/clean/bin/python - <<'PY'
+          import importlib, pkgutil
+          import guardiano3, guardiano3_generated
+          for pkg in (guardiano3, guardiano3_generated):
+              for mod in pkgutil.walk_packages(pkg.__path__, pkg.__name__ + "."):
+                  if mod.name != "guardiano3.live":
+                      importlib.import_module(mod.name)
+          from importlib.metadata import metadata
+          meta = metadata("guardiano3")
+          assert meta["License-Expression"] == "Apache-2.0", meta["License-Expression"]
+          print("ok", guardiano3.__version__)
+          PY
+
+  dco:
+    # Every commit carries a Signed-off-by line from its author. See
+    # CONTRIBUTING.md in guardiano3/.github. Pull requests only: a release
+    # builds a commit that already passed this on its way into main.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Every commit is signed off by its author
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          bad=0
+          for c in $(git rev-list --no-merges "$BASE..$HEAD"); do
+            author="$(git log -1 --format='%an <%ae>' "$c")"
+            if ! git log -1 --format=%B "$c" | grep -qF "Signed-off-by: $author"; then
+              echo "::error::$(git log -1 --format='%h %s' "$c") is not signed off by $author (git commit -s)"
+              bad=1
+            fi
+          done
+          exit $bad

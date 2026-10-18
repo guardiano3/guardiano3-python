@@ -1,0 +1,114 @@
+name: Release
+
+# Publishes from a tag, never from a branch:
+#
+#   v1.2.3        -> PyPI, as 1.2.3
+#   v1.2.3-rc.N   -> TestPyPI, as 1.2.3rcN (the rehearsal)
+#
+# Both use trusted publishing: PyPI and TestPyPI trust this repository's
+# release.yml running in the `release` environment, so no token exists to leak.
+# The environment only accepts runs from v* tags.
+#
+# To release: bump the version in pyproject.toml and src/guardiano3/__init__.py
+# (and the CHANGELOG heading) through a reviewed pull request, then tag the
+# merge commit. All four SDKs are released together, at the same version.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    # The same gates as a pull request, against exactly the tagged commit.
+    uses: ./.github/workflows/ci.yml
+
+  build:
+    needs: ci
+    runs-on: ubuntu-latest
+    outputs:
+      index: ${{ steps.version.outputs.index }}
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: The tag matches the package version
+        id: version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          declared="$(sed -n 's/^version = "\(.*\)"$/\1/p' pyproject.toml | head -1)"
+          case "$TAG" in
+            "v${declared}")
+              echo "index=pypi" >> "$GITHUB_OUTPUT"
+              echo "version=${declared}" >> "$GITHUB_OUTPUT" ;;
+            "v${declared}-rc."*)
+              n="${TAG##*-rc.}"
+              case "$n" in ''|*[!0-9]*) echo "::error::$TAG: expected v${declared}-rc.<number>"; exit 1 ;; esac
+              # A rehearsal builds a pre-release version, so it can be repeated
+              # without colliding with an earlier upload or the real release.
+              sed -i "s/^version = \"${declared}\"$/version = \"${declared}rc${n}\"/" pyproject.toml
+              echo "index=testpypi" >> "$GITHUB_OUTPUT"
+              echo "version=${declared}rc${n}" >> "$GITHUB_OUTPUT" ;;
+            *)
+              echo "::error::tag $TAG does not match version ${declared} in pyproject.toml"
+              exit 1 ;;
+          esac
+
+      - run: pip install build twine
+      - run: python -m build
+      - run: twine check --strict dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write   # trusted publishing; nothing else
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        if: needs.build.outputs.index == 'pypi'
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+      - name: Publish to TestPyPI (rehearsal)
+        if: needs.build.outputs.index == 'testpypi'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+
+  github-release:
+    # Real releases only: a GitHub release whose notes are the CHANGELOG entry.
+    needs: [build, publish]
+    if: needs.build.outputs.index == 'pypi'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          awk -v v="$VERSION" '
+            $0 ~ "^## " v "([ (]|$)" { on = 1; next }
+            on && /^## / { exit }
+            on { print }
+          ' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "See CHANGELOG.md." > notes.md
+          gh release create "$TAG" --verify-tag --title "$TAG" --notes-file notes.md
