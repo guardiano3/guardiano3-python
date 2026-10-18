@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "guardiano3"
+version = "0.1.0"
+description = "Official Python client for the GuardianO3 fraud-intelligence API."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.10"
+authors = [{ name = "Proneuronet Solutions Private Limited", email = "support@guardiano3.com" }]
+keywords = ["guardiano3", "fraud", "scam", "api", "client", "sdk"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+# The generated client's runtime dependencies, as the generator declares them.
+# CI installs the built wheel into an empty environment and imports every
+# module, so a missing one fails there rather than for a customer.
+dependencies = [
+    "urllib3>=2.1.0,<3.0.0",
+    "python-dateutil>=2.8.2",
+    "pydantic>=2",
+    "typing-extensions>=4.7.1",
+    "lazy-imports>=1,<2",
+]
+
+[project.optional-dependencies]
+# LiveSession (the WebSocket channels) needs websockets; nothing else does.
+live = ["websockets>=12"]
+
+[project.urls]
+Homepage = "https://guardiano3.com"
+Source = "https://github.com/guardiano3/guardiano3-python"
+Issues = "https://github.com/guardiano3/guardiano3-python/issues"
+Changelog = "https://github.com/guardiano3/guardiano3-python/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/guardiano3", "src/guardiano3_generated"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "CHANGELOG.md", "LICENSE", "NOTICE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+# Generated code is the generator's output: a lint fix there is reverted by the
+# next regeneration.
+extend-exclude = ["src/guardiano3_generated"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["guardiano3", "guardiano3_generated"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+check_untyped_defs = true
