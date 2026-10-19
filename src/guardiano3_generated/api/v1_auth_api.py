@@ -3,7 +3,7 @@
 """
     GuardianO3 API
 
-    Real-time scam detection for phone calls.  Authenticate with a user access token or an API key; both are sent as `Authorization: Bearer <value>` and are distinguished by the `go3_` key prefix.  Errors share one envelope -- branch on `error.code`, never on `error.message`. Every response carries `X-Request-Id`; quote it in bug reports.  **Live-call channels** (`/v1/sessions/{session_id}/audio` and `/v1/sessions/{session_id}/stream`) use WebSocket, not HTTP. They are not listed under `paths` because OpenAPI 3.x has no first-class WebSocket support; their frame shapes and close codes are declared in the `x-websockets` extension at the top level of this document.
+    Real-time scam detection for audio and text.  Authenticate with a user access token or an API key; both are sent as `Authorization: Bearer <value>` and are distinguished by the `go3_` key prefix.  Errors share one envelope -- branch on `error.code`, never on `error.message`. Every response carries `X-Request-Id`; quote it in bug reports.  **Live session channels** (`/v1/sessions/{session_id}/audio` and `/v1/sessions/{session_id}/stream`) use WebSocket, not HTTP. They are not listed under `paths` because OpenAPI 3.x has no first-class WebSocket support; their frame shapes and close codes are declared in the `x-websockets` extension at the top level of this document.
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@guardiano3.com
@@ -954,7 +954,7 @@ class V1AuthApi:
     ) -> None:
         """Delete this account and its data, permanently
 
-        Erases the account's personal data: call history and transcripts, emergency contacts, sessions, MFA factors and pending tokens. API keys are revoked. The email address is freed for re-registration.  **Irreversible, and immediate.** There is no recovery period.  Requires the current password when the account has one. An account that only ever signed in with a provider has no password to check, so the session itself is the proof.
+        Erases the account's personal data: session history and transcripts, feedback labels, sign-in sessions, MFA factors and pending tokens. API keys are revoked. The email address is freed for re-registration.  **Irreversible, and immediate.** There is no recovery period.  Requires the current password when the account has one. An account that only ever signed in with a provider has no password to check, so the session itself is the proof.
 
         :param account_delete_request: (required)
         :type account_delete_request: AccountDeleteRequest
@@ -1028,7 +1028,7 @@ class V1AuthApi:
     ) -> ApiResponse[None]:
         """Delete this account and its data, permanently
 
-        Erases the account's personal data: call history and transcripts, emergency contacts, sessions, MFA factors and pending tokens. API keys are revoked. The email address is freed for re-registration.  **Irreversible, and immediate.** There is no recovery period.  Requires the current password when the account has one. An account that only ever signed in with a provider has no password to check, so the session itself is the proof.
+        Erases the account's personal data: session history and transcripts, feedback labels, sign-in sessions, MFA factors and pending tokens. API keys are revoked. The email address is freed for re-registration.  **Irreversible, and immediate.** There is no recovery period.  Requires the current password when the account has one. An account that only ever signed in with a provider has no password to check, so the session itself is the proof.
 
         :param account_delete_request: (required)
         :type account_delete_request: AccountDeleteRequest
@@ -1102,7 +1102,7 @@ class V1AuthApi:
     ) -> RESTResponseType:
         """Delete this account and its data, permanently
 
-        Erases the account's personal data: call history and transcripts, emergency contacts, sessions, MFA factors and pending tokens. API keys are revoked. The email address is freed for re-registration.  **Irreversible, and immediate.** There is no recovery period.  Requires the current password when the account has one. An account that only ever signed in with a provider has no password to check, so the session itself is the proof.
+        Erases the account's personal data: session history and transcripts, feedback labels, sign-in sessions, MFA factors and pending tokens. API keys are revoked. The email address is freed for re-registration.  **Irreversible, and immediate.** There is no recovery period.  Requires the current password when the account has one. An account that only ever signed in with a provider has no password to check, so the session itself is the proof.
 
         :param account_delete_request: (required)
         :type account_delete_request: AccountDeleteRequest
