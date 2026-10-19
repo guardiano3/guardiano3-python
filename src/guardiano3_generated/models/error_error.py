@@ -30,7 +30,7 @@ class ErrorError(BaseModel):
     """ # noqa: E501
     code: StrictStr = Field(description="Stable, machine-readable error code. Branch on this, never on `message`. Unknown codes may be added without a version bump, so clients must fall back on the HTTP status class.")
     details: Optional[List[ErrorErrorDetailsInner]] = Field(default=None, description="Per-field validation failures, when applicable.")
-    docs_url: Optional[StrictStr] = Field(default=None, description="Deep link to the error-code entry in the published errors reference. Present only when the deployment has `ERROR_DOCS_BASE_URL` configured; omitted otherwise rather than sent blank.", alias="docsUrl")
+    docs_url: Optional[StrictStr] = Field(default=None, description="Deep link to the error-code entry in the published errors reference. Omitted, rather than sent blank, when there is no entry to link to.", alias="docsUrl")
     message: StrictStr = Field(description="Human-readable. Not contract: may be reworded at any time.")
     request_id: Optional[StrictStr] = Field(default=None, description="Also returned as the X-Request-Id header. Quote it in bug reports.", alias="requestId")
     __properties: ClassVar[List[str]] = ["code", "details", "docsUrl", "message", "requestId"]
