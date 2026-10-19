@@ -5,7 +5,7 @@
 
 The official Python client for the [GuardianO3](https://guardiano3.com) API:
 real-time fraud intelligence for phone calls. Send a transcript, an audio clip
-or a live call, and get a risk decision back.
+or stream live audio, and get a risk decision back.
 
 You need an API key from the developer console at
 [guardiano3.com](https://guardiano3.com).
@@ -103,9 +103,9 @@ import os
 from guardiano3 import Guardiano3
 
 with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
-    with open("call.m4a", "rb") as fh:
+    with open("audio.m4a", "rb") as fh:
         result = client.analysis.analyze_audio_v1_analyze_audio_post(
-            file=("call.m4a", fh.read()), language="hi"
+            file=("audio.m4a", fh.read()), language="hi"
         )
 
 print(result.risk_level.value, result.transcript)
@@ -117,7 +117,7 @@ key management (`client.account`, `client.api_keys` other than `whoami`)
 need a signed-in user's `access_token` and refuse a key with `401`.
 
 Models are Pydantic, so a bad value fails **locally**, before the request
-leaves — a wrong phone number costs no round trip. Properties are snake_case
+leaves — an invalid value costs no round trip. Properties are snake_case
 (`risk_score`); the wire format stays camelCase. That is the alias doing its
 job, not drift.
 
@@ -254,7 +254,7 @@ with Guardiano3(access_token=os.environ["GO3_ACCESS_TOKEN"]) as client:
 
 ## WebSocket / Live Sessions
 
-`LiveSession` manages the two WebSocket channels for real-time call
+`LiveSession` manages the two WebSocket channels for real-time session
 analysis: binary audio uplink and typed JSON decision downlink. It is an
 async context manager and an async iterator.
 
@@ -285,7 +285,7 @@ async def main():
         ) as live:
             # 3. Send PCM audio (16-bit LE, 16kHz mono). In a real client this
             #    is a chunk off the microphone; here it comes from a file.
-            with open("call.raw", "rb") as fh:
+            with open("audio.raw", "rb") as fh:
                 pcm_bytes = fh.read()
             await live.send_audio(pcm_bytes)
 
@@ -311,7 +311,7 @@ asyncio.run(main())
 | `decision` | `risk_level`, `risk_score`, `fraud_category`, `verification_status`, `transcript`, `explanation` | Scored chunk |
 | `decisionUpdate` | same as `decision` | Final decision for a chunk first sent as `pending`; replace it in place |
 | `lagging` | `dropped_chunks` | Audio arriving faster than transcription |
-| `degraded` | `degraded_reason`, `unheard_seconds`, `total_unheard_seconds` | Part of the call was not transcribed; no decision covers it. Not fatal: do not read a quiet stream as a safe call |
+| `degraded` | `degraded_reason`, `unheard_seconds`, `total_unheard_seconds` | Part of the audio was not analysed; no decision covers it. Not fatal: do not read a quiet stream as a safe session |
 | `error` | `error_code`, `error_message` | Fatal; server closes after sending |
 | `ping` | — | Keep-alive |
 
@@ -353,4 +353,4 @@ The licence covers this SDK's source code. Using the GuardianO3 API requires an
 API key and acceptance of the [Terms of Service](https://guardiano3.com/terms).
 
 Security issues: see [SECURITY](https://github.com/guardiano3/.github/blob/main/SECURITY.md).
-Never put API keys, call audio or transcripts in an issue.
+Never put API keys, session audio or transcripts in an issue.
