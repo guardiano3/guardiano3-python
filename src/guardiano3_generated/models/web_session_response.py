@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class WebSessionResponse(BaseModel):
     """
-    Browser login response (ADR-018). No refresh token — it travels in a cookie.
+    Browser sign-in response. No refresh token in the body — it is set as a cookie.
     """ # noqa: E501
     access_token: StrictStr = Field(alias="accessToken")
     expires_in: StrictInt = Field(alias="expiresIn")
