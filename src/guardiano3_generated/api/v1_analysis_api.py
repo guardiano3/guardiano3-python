@@ -41,7 +41,7 @@ class V1AnalysisApi:
 
 
     @validate_call
-    def analyze_audio_v1_analyze_audio_post(
+    def analyze_audio(
         self,
         file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
         language: Optional[StrictStr] = None,
@@ -88,7 +88,7 @@ class V1AnalysisApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._analyze_audio_v1_analyze_audio_post_serialize(
+        _param = self._analyze_audio_serialize(
             file=file,
             language=language,
             _request_auth=_request_auth,
@@ -119,7 +119,7 @@ class V1AnalysisApi:
 
 
     @validate_call
-    def analyze_audio_v1_analyze_audio_post_with_http_info(
+    def analyze_audio_with_http_info(
         self,
         file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
         language: Optional[StrictStr] = None,
@@ -166,7 +166,7 @@ class V1AnalysisApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._analyze_audio_v1_analyze_audio_post_serialize(
+        _param = self._analyze_audio_serialize(
             file=file,
             language=language,
             _request_auth=_request_auth,
@@ -197,7 +197,7 @@ class V1AnalysisApi:
 
 
     @validate_call
-    def analyze_audio_v1_analyze_audio_post_without_preload_content(
+    def analyze_audio_without_preload_content(
         self,
         file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
         language: Optional[StrictStr] = None,
@@ -244,7 +244,7 @@ class V1AnalysisApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._analyze_audio_v1_analyze_audio_post_serialize(
+        _param = self._analyze_audio_serialize(
             file=file,
             language=language,
             _request_auth=_request_auth,
@@ -270,7 +270,7 @@ class V1AnalysisApi:
         return response_data.response
 
 
-    def _analyze_audio_v1_analyze_audio_post_serialize(
+    def _analyze_audio_serialize(
         self,
         file,
         language,
@@ -351,7 +351,7 @@ class V1AnalysisApi:
 
 
     @validate_call
-    def analyze_text_v1_analyze_text_post(
+    def analyze_text(
         self,
         text_analysis_request: TextAnalysisRequest,
         idempotency_key: Optional[StrictStr] = None,
@@ -398,7 +398,7 @@ class V1AnalysisApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._analyze_text_v1_analyze_text_post_serialize(
+        _param = self._analyze_text_serialize(
             text_analysis_request=text_analysis_request,
             idempotency_key=idempotency_key,
             _request_auth=_request_auth,
@@ -429,7 +429,7 @@ class V1AnalysisApi:
 
 
     @validate_call
-    def analyze_text_v1_analyze_text_post_with_http_info(
+    def analyze_text_with_http_info(
         self,
         text_analysis_request: TextAnalysisRequest,
         idempotency_key: Optional[StrictStr] = None,
@@ -476,7 +476,7 @@ class V1AnalysisApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._analyze_text_v1_analyze_text_post_serialize(
+        _param = self._analyze_text_serialize(
             text_analysis_request=text_analysis_request,
             idempotency_key=idempotency_key,
             _request_auth=_request_auth,
@@ -507,7 +507,7 @@ class V1AnalysisApi:
 
 
     @validate_call
-    def analyze_text_v1_analyze_text_post_without_preload_content(
+    def analyze_text_without_preload_content(
         self,
         text_analysis_request: TextAnalysisRequest,
         idempotency_key: Optional[StrictStr] = None,
@@ -554,7 +554,7 @@ class V1AnalysisApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._analyze_text_v1_analyze_text_post_serialize(
+        _param = self._analyze_text_serialize(
             text_analysis_request=text_analysis_request,
             idempotency_key=idempotency_key,
             _request_auth=_request_auth,
@@ -580,7 +580,7 @@ class V1AnalysisApi:
         return response_data.response
 
 
-    def _analyze_text_v1_analyze_text_post_serialize(
+    def _analyze_text_serialize(
         self,
         text_analysis_request,
         idempotency_key,

@@ -348,7 +348,7 @@ def test_a_retried_audio_upload_still_carries_its_file():
         client._api_client._sleep = lambda _seconds: None
         # The raw-response variant, so the test is about the request and not
         # about deserialising a full AnalysisResponse.
-        response = client.analysis.analyze_audio_v1_analyze_audio_post_without_preload_content(
+        response = client.analysis.analyze_audio_without_preload_content(
             file=("clip.wav", audio)
         )
         assert response.status == 200

@@ -43,7 +43,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def get_analytics_v1_analytics_get(
+    def get_analytics(
         self,
         window: Annotated[Optional[StrictStr], Field(description="Rolling window, ending now.")] = None,
         environment: Optional[StrictStr] = None,
@@ -90,7 +90,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_analytics_v1_analytics_get_serialize(
+        _param = self._get_analytics_serialize(
             window=window,
             environment=environment,
             _request_auth=_request_auth,
@@ -121,7 +121,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def get_analytics_v1_analytics_get_with_http_info(
+    def get_analytics_with_http_info(
         self,
         window: Annotated[Optional[StrictStr], Field(description="Rolling window, ending now.")] = None,
         environment: Optional[StrictStr] = None,
@@ -168,7 +168,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_analytics_v1_analytics_get_serialize(
+        _param = self._get_analytics_serialize(
             window=window,
             environment=environment,
             _request_auth=_request_auth,
@@ -199,7 +199,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def get_analytics_v1_analytics_get_without_preload_content(
+    def get_analytics_without_preload_content(
         self,
         window: Annotated[Optional[StrictStr], Field(description="Rolling window, ending now.")] = None,
         environment: Optional[StrictStr] = None,
@@ -246,7 +246,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_analytics_v1_analytics_get_serialize(
+        _param = self._get_analytics_serialize(
             window=window,
             environment=environment,
             _request_auth=_request_auth,
@@ -272,7 +272,7 @@ class V1AccountApi:
         return response_data.response
 
 
-    def _get_analytics_v1_analytics_get_serialize(
+    def _get_analytics_serialize(
         self,
         window,
         environment,
@@ -344,7 +344,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def get_profile_v1_user_profile_get(
+    def get_profile(
         self,
         _request_timeout: Union[
             None,
@@ -384,7 +384,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_profile_v1_user_profile_get_serialize(
+        _param = self._get_profile_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -413,7 +413,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def get_profile_v1_user_profile_get_with_http_info(
+    def get_profile_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -453,7 +453,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_profile_v1_user_profile_get_serialize(
+        _param = self._get_profile_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -482,7 +482,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def get_profile_v1_user_profile_get_without_preload_content(
+    def get_profile_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -522,7 +522,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_profile_v1_user_profile_get_serialize(
+        _param = self._get_profile_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -546,7 +546,7 @@ class V1AccountApi:
         return response_data.response
 
 
-    def _get_profile_v1_user_profile_get_serialize(
+    def _get_profile_serialize(
         self,
         _request_auth,
         _content_type,
@@ -608,7 +608,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def update_profile_v1_user_profile_patch(
+    def update_profile(
         self,
         profile_update_request: ProfileUpdateRequest,
         _request_timeout: Union[
@@ -651,7 +651,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_profile_v1_user_profile_patch_serialize(
+        _param = self._update_profile_serialize(
             profile_update_request=profile_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -681,7 +681,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def update_profile_v1_user_profile_patch_with_http_info(
+    def update_profile_with_http_info(
         self,
         profile_update_request: ProfileUpdateRequest,
         _request_timeout: Union[
@@ -724,7 +724,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_profile_v1_user_profile_patch_serialize(
+        _param = self._update_profile_serialize(
             profile_update_request=profile_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -754,7 +754,7 @@ class V1AccountApi:
 
 
     @validate_call
-    def update_profile_v1_user_profile_patch_without_preload_content(
+    def update_profile_without_preload_content(
         self,
         profile_update_request: ProfileUpdateRequest,
         _request_timeout: Union[
@@ -797,7 +797,7 @@ class V1AccountApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_profile_v1_user_profile_patch_serialize(
+        _param = self._update_profile_serialize(
             profile_update_request=profile_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -822,7 +822,7 @@ class V1AccountApi:
         return response_data.response
 
 
-    def _update_profile_v1_user_profile_patch_serialize(
+    def _update_profile_serialize(
         self,
         profile_update_request,
         _request_auth,

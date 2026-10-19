@@ -45,7 +45,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def create_session_v1_sessions_post(
+    def create_session(
         self,
         session_create_request: SessionCreateRequest,
         idempotency_key: Optional[StrictStr] = None,
@@ -92,7 +92,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_session_v1_sessions_post_serialize(
+        _param = self._create_session_serialize(
             session_create_request=session_create_request,
             idempotency_key=idempotency_key,
             _request_auth=_request_auth,
@@ -123,7 +123,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def create_session_v1_sessions_post_with_http_info(
+    def create_session_with_http_info(
         self,
         session_create_request: SessionCreateRequest,
         idempotency_key: Optional[StrictStr] = None,
@@ -170,7 +170,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_session_v1_sessions_post_serialize(
+        _param = self._create_session_serialize(
             session_create_request=session_create_request,
             idempotency_key=idempotency_key,
             _request_auth=_request_auth,
@@ -201,7 +201,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def create_session_v1_sessions_post_without_preload_content(
+    def create_session_without_preload_content(
         self,
         session_create_request: SessionCreateRequest,
         idempotency_key: Optional[StrictStr] = None,
@@ -248,7 +248,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_session_v1_sessions_post_serialize(
+        _param = self._create_session_serialize(
             session_create_request=session_create_request,
             idempotency_key=idempotency_key,
             _request_auth=_request_auth,
@@ -274,7 +274,7 @@ class V1SessionsApi:
         return response_data.response
 
 
-    def _create_session_v1_sessions_post_serialize(
+    def _create_session_serialize(
         self,
         session_create_request,
         idempotency_key,
@@ -355,7 +355,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def get_session_v1_sessions_session_id_get(
+    def get_session(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -398,7 +398,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_session_v1_sessions_session_id_get_serialize(
+        _param = self._get_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -429,7 +429,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def get_session_v1_sessions_session_id_get_with_http_info(
+    def get_session_with_http_info(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -472,7 +472,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_session_v1_sessions_session_id_get_serialize(
+        _param = self._get_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -503,7 +503,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def get_session_v1_sessions_session_id_get_without_preload_content(
+    def get_session_without_preload_content(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -546,7 +546,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_session_v1_sessions_session_id_get_serialize(
+        _param = self._get_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -572,7 +572,7 @@ class V1SessionsApi:
         return response_data.response
 
 
-    def _get_session_v1_sessions_session_id_get_serialize(
+    def _get_session_serialize(
         self,
         session_id,
         _request_auth,
@@ -637,7 +637,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def list_history_v1_history_get(
+    def list_history(
         self,
         cursor: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
@@ -684,7 +684,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_history_v1_history_get_serialize(
+        _param = self._list_history_serialize(
             cursor=cursor,
             limit=limit,
             _request_auth=_request_auth,
@@ -715,7 +715,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def list_history_v1_history_get_with_http_info(
+    def list_history_with_http_info(
         self,
         cursor: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
@@ -762,7 +762,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_history_v1_history_get_serialize(
+        _param = self._list_history_serialize(
             cursor=cursor,
             limit=limit,
             _request_auth=_request_auth,
@@ -793,7 +793,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def list_history_v1_history_get_without_preload_content(
+    def list_history_without_preload_content(
         self,
         cursor: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
@@ -840,7 +840,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_history_v1_history_get_serialize(
+        _param = self._list_history_serialize(
             cursor=cursor,
             limit=limit,
             _request_auth=_request_auth,
@@ -866,7 +866,7 @@ class V1SessionsApi:
         return response_data.response
 
 
-    def _list_history_v1_history_get_serialize(
+    def _list_history_serialize(
         self,
         cursor,
         limit,
@@ -938,7 +938,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def stop_session_v1_sessions_session_id_stop_post(
+    def stop_session(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -981,7 +981,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._stop_session_v1_sessions_session_id_stop_post_serialize(
+        _param = self._stop_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1012,7 +1012,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def stop_session_v1_sessions_session_id_stop_post_with_http_info(
+    def stop_session_with_http_info(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -1055,7 +1055,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._stop_session_v1_sessions_session_id_stop_post_serialize(
+        _param = self._stop_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1086,7 +1086,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def stop_session_v1_sessions_session_id_stop_post_without_preload_content(
+    def stop_session_without_preload_content(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -1129,7 +1129,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._stop_session_v1_sessions_session_id_stop_post_serialize(
+        _param = self._stop_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1155,7 +1155,7 @@ class V1SessionsApi:
         return response_data.response
 
 
-    def _stop_session_v1_sessions_session_id_stop_post_serialize(
+    def _stop_session_serialize(
         self,
         session_id,
         _request_auth,
@@ -1220,7 +1220,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def submit_feedback_v1_sessions_session_id_feedback_post(
+    def submit_feedback(
         self,
         session_id: StrictStr,
         feedback_request: FeedbackRequest,
@@ -1270,7 +1270,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._submit_feedback_v1_sessions_session_id_feedback_post_serialize(
+        _param = self._submit_feedback_serialize(
             session_id=session_id,
             feedback_request=feedback_request,
             idempotency_key=idempotency_key,
@@ -1303,7 +1303,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def submit_feedback_v1_sessions_session_id_feedback_post_with_http_info(
+    def submit_feedback_with_http_info(
         self,
         session_id: StrictStr,
         feedback_request: FeedbackRequest,
@@ -1353,7 +1353,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._submit_feedback_v1_sessions_session_id_feedback_post_serialize(
+        _param = self._submit_feedback_serialize(
             session_id=session_id,
             feedback_request=feedback_request,
             idempotency_key=idempotency_key,
@@ -1386,7 +1386,7 @@ class V1SessionsApi:
 
 
     @validate_call
-    def submit_feedback_v1_sessions_session_id_feedback_post_without_preload_content(
+    def submit_feedback_without_preload_content(
         self,
         session_id: StrictStr,
         feedback_request: FeedbackRequest,
@@ -1436,7 +1436,7 @@ class V1SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._submit_feedback_v1_sessions_session_id_feedback_post_serialize(
+        _param = self._submit_feedback_serialize(
             session_id=session_id,
             feedback_request=feedback_request,
             idempotency_key=idempotency_key,
@@ -1464,7 +1464,7 @@ class V1SessionsApi:
         return response_data.response
 
 
-    def _submit_feedback_v1_sessions_session_id_feedback_post_serialize(
+    def _submit_feedback_serialize(
         self,
         session_id,
         feedback_request,

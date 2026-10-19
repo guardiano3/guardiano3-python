@@ -17,7 +17,7 @@ class Guardiano3:
     """A GuardianO3 API client.
 
         client = Guardiano3(api_key="go3_live_...")
-        result = client.analysis.analyze_text_v1_analyze_text_post(
+        result = client.analysis.analyze_text(
             text_analysis_request={"text": "share your otp"}
         )
 
@@ -90,7 +90,7 @@ class Guardiano3:
         """
 
         def fetch(cursor=None, limit=None):
-            return self.sessions.list_history_v1_history_get(cursor=cursor, limit=limit)
+            return self.sessions.list_history(cursor=cursor, limit=limit)
 
         return iterate(fetch, limit=limit, max_items=max_items)
 

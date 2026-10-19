@@ -112,8 +112,8 @@ def test_a_session_can_be_created_and_read_without_a_phone_number(monkeypatch):
     }
     with Guardiano3(api_key="go3_test_x", base_url="http://localhost:8000") as client:
         _serve(client, monkeypatch, (201, {"id": "s1"}), (200, stored))
-        created = client.sessions.create_session_v1_sessions_post(request)
-        session = client.sessions.get_session_v1_sessions_session_id_get(created.id)
+        created = client.sessions.create_session(request)
+        session = client.sessions.get_session(created.id)
 
     assert session.id == "s1"
     assert session.phone_number is None and session.direction is None
