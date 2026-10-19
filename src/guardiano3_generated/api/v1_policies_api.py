@@ -42,7 +42,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def accept_policies_v1_policies_accept_post(
+    def accept_policies(
         self,
         policy_accept_request: PolicyAcceptRequest,
         _request_timeout: Union[
@@ -86,7 +86,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._accept_policies_v1_policies_accept_post_serialize(
+        _param = self._accept_policies_serialize(
             policy_accept_request=policy_accept_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -116,7 +116,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def accept_policies_v1_policies_accept_post_with_http_info(
+    def accept_policies_with_http_info(
         self,
         policy_accept_request: PolicyAcceptRequest,
         _request_timeout: Union[
@@ -160,7 +160,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._accept_policies_v1_policies_accept_post_serialize(
+        _param = self._accept_policies_serialize(
             policy_accept_request=policy_accept_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -190,7 +190,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def accept_policies_v1_policies_accept_post_without_preload_content(
+    def accept_policies_without_preload_content(
         self,
         policy_accept_request: PolicyAcceptRequest,
         _request_timeout: Union[
@@ -234,7 +234,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._accept_policies_v1_policies_accept_post_serialize(
+        _param = self._accept_policies_serialize(
             policy_accept_request=policy_accept_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -259,7 +259,7 @@ class V1PoliciesApi:
         return response_data.response
 
 
-    def _accept_policies_v1_policies_accept_post_serialize(
+    def _accept_policies_serialize(
         self,
         policy_accept_request,
         _request_auth,
@@ -337,7 +337,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def get_current_policies_v1_policies_current_get(
+    def get_current_policies(
         self,
         _request_timeout: Union[
             None,
@@ -378,7 +378,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_current_policies_v1_policies_current_get_serialize(
+        _param = self._get_current_policies_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -407,7 +407,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def get_current_policies_v1_policies_current_get_with_http_info(
+    def get_current_policies_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -448,7 +448,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_current_policies_v1_policies_current_get_serialize(
+        _param = self._get_current_policies_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -477,7 +477,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def get_current_policies_v1_policies_current_get_without_preload_content(
+    def get_current_policies_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -518,7 +518,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_current_policies_v1_policies_current_get_serialize(
+        _param = self._get_current_policies_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -542,7 +542,7 @@ class V1PoliciesApi:
         return response_data.response
 
 
-    def _get_current_policies_v1_policies_current_get_serialize(
+    def _get_current_policies_serialize(
         self,
         _request_auth,
         _content_type,
@@ -603,7 +603,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def get_policy_content_v1_policies_kind_get(
+    def get_policy_content(
         self,
         kind: PolicyKind,
         _request_timeout: Union[
@@ -647,7 +647,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_content_v1_policies_kind_get_serialize(
+        _param = self._get_policy_content_serialize(
             kind=kind,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -678,7 +678,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def get_policy_content_v1_policies_kind_get_with_http_info(
+    def get_policy_content_with_http_info(
         self,
         kind: PolicyKind,
         _request_timeout: Union[
@@ -722,7 +722,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_content_v1_policies_kind_get_serialize(
+        _param = self._get_policy_content_serialize(
             kind=kind,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -753,7 +753,7 @@ class V1PoliciesApi:
 
 
     @validate_call
-    def get_policy_content_v1_policies_kind_get_without_preload_content(
+    def get_policy_content_without_preload_content(
         self,
         kind: PolicyKind,
         _request_timeout: Union[
@@ -797,7 +797,7 @@ class V1PoliciesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_content_v1_policies_kind_get_serialize(
+        _param = self._get_policy_content_serialize(
             kind=kind,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -823,7 +823,7 @@ class V1PoliciesApi:
         return response_data.response
 
 
-    def _get_policy_content_v1_policies_kind_get_serialize(
+    def _get_policy_content_serialize(
         self,
         kind,
         _request_auth,

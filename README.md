@@ -66,7 +66,7 @@ import os
 from guardiano3 import Guardiano3
 
 with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
-    who = client.api_keys.whoami_v1_whoami_get()
+    who = client.api_keys.whoami()
     print(who.actor_label, who.scopes)
 ```
 
@@ -75,7 +75,7 @@ with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
 Operations are grouped by tag: `client.auth`, `client.sessions`,
 `client.account`, `client.analysis`, `client.api_keys`, `client.policies`, `client.org`. Method names come from
 the contract's `operationId`, which is why they are long
-(`analyze_text_v1_analyze_text_post`) — they are generated, stable, and
+(`analyze_text`) — they are generated, stable, and
 unambiguous. The hand-written layer adds short forms only where they earn their
 keep, such as `iter_history()`.
 
@@ -86,7 +86,7 @@ import os
 from guardiano3 import Guardiano3
 
 with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
-    result = client.analysis.analyze_text_v1_analyze_text_post(
+    result = client.analysis.analyze_text(
         text_analysis_request={"text": "Share the OTP to unblock your account."}
     )
 
@@ -104,7 +104,7 @@ from guardiano3 import Guardiano3
 
 with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
     with open("audio.m4a", "rb") as fh:
-        result = client.analysis.analyze_audio_v1_analyze_audio_post(
+        result = client.analysis.analyze_audio(
             file=("audio.m4a", fh.read()), language="hi"
         )
 
@@ -143,7 +143,7 @@ from guardiano3 import (
 
 with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
     try:
-        client.sessions.get_session_v1_sessions_session_id_get(session_id="nope")
+        client.sessions.get_session(session_id="nope")
     except NotFoundError as exc:
         # Also raised when the row exists but belongs to someone else.
         print(exc.code, exc.status_code, exc.request_id)
@@ -247,7 +247,7 @@ import os
 from guardiano3 import Guardiano3, iterate
 
 with Guardiano3(access_token=os.environ["GO3_ACCESS_TOKEN"]) as client:
-    pages = client.sessions.list_history_v1_history_get
+    pages = client.sessions.list_history
     for item in iterate(lambda cursor=None, limit=None: pages(cursor=cursor, limit=limit)):
         print(item.id)
 ```
@@ -270,7 +270,7 @@ from guardiano3 import Guardiano3, LiveSession
 async def main():
     with Guardiano3(api_key=os.environ["GO3_API_KEY"]) as client:
         # 1. Create a session via REST
-        session = client.sessions.create_session_v1_sessions_post(
+        session = client.sessions.create_session(
             session_create_request={
                 "phoneNumber": "+91 98765 43210",
                 "direction": "incoming",

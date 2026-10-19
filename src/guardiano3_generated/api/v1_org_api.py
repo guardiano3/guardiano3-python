@@ -46,7 +46,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def accept_invitation_v1_org_accept_invitation_post(
+    def accept_invitation(
         self,
         accept_invitation_request: AcceptInvitationRequest,
         _request_timeout: Union[
@@ -89,7 +89,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._accept_invitation_v1_org_accept_invitation_post_serialize(
+        _param = self._accept_invitation_serialize(
             accept_invitation_request=accept_invitation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -119,7 +119,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def accept_invitation_v1_org_accept_invitation_post_with_http_info(
+    def accept_invitation_with_http_info(
         self,
         accept_invitation_request: AcceptInvitationRequest,
         _request_timeout: Union[
@@ -162,7 +162,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._accept_invitation_v1_org_accept_invitation_post_serialize(
+        _param = self._accept_invitation_serialize(
             accept_invitation_request=accept_invitation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -192,7 +192,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def accept_invitation_v1_org_accept_invitation_post_without_preload_content(
+    def accept_invitation_without_preload_content(
         self,
         accept_invitation_request: AcceptInvitationRequest,
         _request_timeout: Union[
@@ -235,7 +235,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._accept_invitation_v1_org_accept_invitation_post_serialize(
+        _param = self._accept_invitation_serialize(
             accept_invitation_request=accept_invitation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -260,7 +260,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _accept_invitation_v1_org_accept_invitation_post_serialize(
+    def _accept_invitation_serialize(
         self,
         accept_invitation_request,
         _request_auth,
@@ -338,7 +338,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def cancel_invitation_v1_org_invitations_invitation_id_delete(
+    def cancel_invitation(
         self,
         invitation_id: StrictStr,
         _request_timeout: Union[
@@ -381,7 +381,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cancel_invitation_v1_org_invitations_invitation_id_delete_serialize(
+        _param = self._cancel_invitation_serialize(
             invitation_id=invitation_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -412,7 +412,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def cancel_invitation_v1_org_invitations_invitation_id_delete_with_http_info(
+    def cancel_invitation_with_http_info(
         self,
         invitation_id: StrictStr,
         _request_timeout: Union[
@@ -455,7 +455,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cancel_invitation_v1_org_invitations_invitation_id_delete_serialize(
+        _param = self._cancel_invitation_serialize(
             invitation_id=invitation_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -486,7 +486,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def cancel_invitation_v1_org_invitations_invitation_id_delete_without_preload_content(
+    def cancel_invitation_without_preload_content(
         self,
         invitation_id: StrictStr,
         _request_timeout: Union[
@@ -529,7 +529,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._cancel_invitation_v1_org_invitations_invitation_id_delete_serialize(
+        _param = self._cancel_invitation_serialize(
             invitation_id=invitation_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -555,7 +555,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _cancel_invitation_v1_org_invitations_invitation_id_delete_serialize(
+    def _cancel_invitation_serialize(
         self,
         invitation_id,
         _request_auth,
@@ -620,7 +620,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def get_org_v1_org_get(
+    def get_org(
         self,
         _request_timeout: Union[
             None,
@@ -660,7 +660,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_org_v1_org_get_serialize(
+        _param = self._get_org_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -689,7 +689,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def get_org_v1_org_get_with_http_info(
+    def get_org_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -729,7 +729,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_org_v1_org_get_serialize(
+        _param = self._get_org_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -758,7 +758,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def get_org_v1_org_get_without_preload_content(
+    def get_org_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -798,7 +798,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_org_v1_org_get_serialize(
+        _param = self._get_org_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -822,7 +822,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _get_org_v1_org_get_serialize(
+    def _get_org_serialize(
         self,
         _request_auth,
         _content_type,
@@ -884,7 +884,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def invite_member_v1_org_invitations_post(
+    def invite_member(
         self,
         invite_member_request: InviteMemberRequest,
         _request_timeout: Union[
@@ -927,7 +927,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._invite_member_v1_org_invitations_post_serialize(
+        _param = self._invite_member_serialize(
             invite_member_request=invite_member_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -957,7 +957,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def invite_member_v1_org_invitations_post_with_http_info(
+    def invite_member_with_http_info(
         self,
         invite_member_request: InviteMemberRequest,
         _request_timeout: Union[
@@ -1000,7 +1000,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._invite_member_v1_org_invitations_post_serialize(
+        _param = self._invite_member_serialize(
             invite_member_request=invite_member_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1030,7 +1030,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def invite_member_v1_org_invitations_post_without_preload_content(
+    def invite_member_without_preload_content(
         self,
         invite_member_request: InviteMemberRequest,
         _request_timeout: Union[
@@ -1073,7 +1073,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._invite_member_v1_org_invitations_post_serialize(
+        _param = self._invite_member_serialize(
             invite_member_request=invite_member_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1098,7 +1098,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _invite_member_v1_org_invitations_post_serialize(
+    def _invite_member_serialize(
         self,
         invite_member_request,
         _request_auth,
@@ -1176,7 +1176,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def list_invitations_v1_org_invitations_get(
+    def list_invitations(
         self,
         _request_timeout: Union[
             None,
@@ -1216,7 +1216,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_invitations_v1_org_invitations_get_serialize(
+        _param = self._list_invitations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1245,7 +1245,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def list_invitations_v1_org_invitations_get_with_http_info(
+    def list_invitations_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1285,7 +1285,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_invitations_v1_org_invitations_get_serialize(
+        _param = self._list_invitations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1314,7 +1314,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def list_invitations_v1_org_invitations_get_without_preload_content(
+    def list_invitations_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1354,7 +1354,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_invitations_v1_org_invitations_get_serialize(
+        _param = self._list_invitations_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1378,7 +1378,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _list_invitations_v1_org_invitations_get_serialize(
+    def _list_invitations_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1440,7 +1440,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def list_members_v1_org_members_get(
+    def list_members(
         self,
         _request_timeout: Union[
             None,
@@ -1480,7 +1480,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_members_v1_org_members_get_serialize(
+        _param = self._list_members_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1509,7 +1509,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def list_members_v1_org_members_get_with_http_info(
+    def list_members_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1549,7 +1549,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_members_v1_org_members_get_serialize(
+        _param = self._list_members_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1578,7 +1578,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def list_members_v1_org_members_get_without_preload_content(
+    def list_members_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1618,7 +1618,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_members_v1_org_members_get_serialize(
+        _param = self._list_members_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1642,7 +1642,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _list_members_v1_org_members_get_serialize(
+    def _list_members_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1704,7 +1704,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def remove_member_v1_org_members_user_id_delete(
+    def remove_member(
         self,
         user_id: StrictStr,
         _request_timeout: Union[
@@ -1747,7 +1747,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._remove_member_v1_org_members_user_id_delete_serialize(
+        _param = self._remove_member_serialize(
             user_id=user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1778,7 +1778,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def remove_member_v1_org_members_user_id_delete_with_http_info(
+    def remove_member_with_http_info(
         self,
         user_id: StrictStr,
         _request_timeout: Union[
@@ -1821,7 +1821,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._remove_member_v1_org_members_user_id_delete_serialize(
+        _param = self._remove_member_serialize(
             user_id=user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1852,7 +1852,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def remove_member_v1_org_members_user_id_delete_without_preload_content(
+    def remove_member_without_preload_content(
         self,
         user_id: StrictStr,
         _request_timeout: Union[
@@ -1895,7 +1895,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._remove_member_v1_org_members_user_id_delete_serialize(
+        _param = self._remove_member_serialize(
             user_id=user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1921,7 +1921,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _remove_member_v1_org_members_user_id_delete_serialize(
+    def _remove_member_serialize(
         self,
         user_id,
         _request_auth,
@@ -1986,7 +1986,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def update_member_role_v1_org_members_user_id_patch(
+    def update_member_role(
         self,
         user_id: StrictStr,
         update_member_role_request: UpdateMemberRoleRequest,
@@ -2032,7 +2032,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_member_role_v1_org_members_user_id_patch_serialize(
+        _param = self._update_member_role_serialize(
             user_id=user_id,
             update_member_role_request=update_member_role_request,
             _request_auth=_request_auth,
@@ -2064,7 +2064,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def update_member_role_v1_org_members_user_id_patch_with_http_info(
+    def update_member_role_with_http_info(
         self,
         user_id: StrictStr,
         update_member_role_request: UpdateMemberRoleRequest,
@@ -2110,7 +2110,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_member_role_v1_org_members_user_id_patch_serialize(
+        _param = self._update_member_role_serialize(
             user_id=user_id,
             update_member_role_request=update_member_role_request,
             _request_auth=_request_auth,
@@ -2142,7 +2142,7 @@ class V1OrgApi:
 
 
     @validate_call
-    def update_member_role_v1_org_members_user_id_patch_without_preload_content(
+    def update_member_role_without_preload_content(
         self,
         user_id: StrictStr,
         update_member_role_request: UpdateMemberRoleRequest,
@@ -2188,7 +2188,7 @@ class V1OrgApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_member_role_v1_org_members_user_id_patch_serialize(
+        _param = self._update_member_role_serialize(
             user_id=user_id,
             update_member_role_request=update_member_role_request,
             _request_auth=_request_auth,
@@ -2215,7 +2215,7 @@ class V1OrgApi:
         return response_data.response
 
 
-    def _update_member_role_v1_org_members_user_id_patch_serialize(
+    def _update_member_role_serialize(
         self,
         user_id,
         update_member_role_request,

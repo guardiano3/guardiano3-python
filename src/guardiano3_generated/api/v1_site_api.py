@@ -42,7 +42,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def confirm_subscription_v1_site_subscribe_confirm_post(
+    def confirm_subscription(
         self,
         subscription_token_request: SubscriptionTokenRequest,
         _request_timeout: Union[
@@ -86,7 +86,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_subscription_v1_site_subscribe_confirm_post_serialize(
+        _param = self._confirm_subscription_serialize(
             subscription_token_request=subscription_token_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -116,7 +116,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def confirm_subscription_v1_site_subscribe_confirm_post_with_http_info(
+    def confirm_subscription_with_http_info(
         self,
         subscription_token_request: SubscriptionTokenRequest,
         _request_timeout: Union[
@@ -160,7 +160,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_subscription_v1_site_subscribe_confirm_post_serialize(
+        _param = self._confirm_subscription_serialize(
             subscription_token_request=subscription_token_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -190,7 +190,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def confirm_subscription_v1_site_subscribe_confirm_post_without_preload_content(
+    def confirm_subscription_without_preload_content(
         self,
         subscription_token_request: SubscriptionTokenRequest,
         _request_timeout: Union[
@@ -234,7 +234,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_subscription_v1_site_subscribe_confirm_post_serialize(
+        _param = self._confirm_subscription_serialize(
             subscription_token_request=subscription_token_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -259,7 +259,7 @@ class V1SiteApi:
         return response_data.response
 
 
-    def _confirm_subscription_v1_site_subscribe_confirm_post_serialize(
+    def _confirm_subscription_serialize(
         self,
         subscription_token_request,
         _request_auth,
@@ -336,7 +336,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def contact_sales_v1_site_contact_sales_post(
+    def contact_sales(
         self,
         contact_sales_request: ContactSalesRequest,
         _request_timeout: Union[
@@ -380,7 +380,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._contact_sales_v1_site_contact_sales_post_serialize(
+        _param = self._contact_sales_serialize(
             contact_sales_request=contact_sales_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -410,7 +410,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def contact_sales_v1_site_contact_sales_post_with_http_info(
+    def contact_sales_with_http_info(
         self,
         contact_sales_request: ContactSalesRequest,
         _request_timeout: Union[
@@ -454,7 +454,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._contact_sales_v1_site_contact_sales_post_serialize(
+        _param = self._contact_sales_serialize(
             contact_sales_request=contact_sales_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -484,7 +484,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def contact_sales_v1_site_contact_sales_post_without_preload_content(
+    def contact_sales_without_preload_content(
         self,
         contact_sales_request: ContactSalesRequest,
         _request_timeout: Union[
@@ -528,7 +528,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._contact_sales_v1_site_contact_sales_post_serialize(
+        _param = self._contact_sales_serialize(
             contact_sales_request=contact_sales_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -553,7 +553,7 @@ class V1SiteApi:
         return response_data.response
 
 
-    def _contact_sales_v1_site_contact_sales_post_serialize(
+    def _contact_sales_serialize(
         self,
         contact_sales_request,
         _request_auth,
@@ -630,7 +630,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def subscribe_v1_site_subscribe_post(
+    def subscribe(
         self,
         subscribe_request: SubscribeRequest,
         _request_timeout: Union[
@@ -674,7 +674,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._subscribe_v1_site_subscribe_post_serialize(
+        _param = self._subscribe_serialize(
             subscribe_request=subscribe_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -704,7 +704,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def subscribe_v1_site_subscribe_post_with_http_info(
+    def subscribe_with_http_info(
         self,
         subscribe_request: SubscribeRequest,
         _request_timeout: Union[
@@ -748,7 +748,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._subscribe_v1_site_subscribe_post_serialize(
+        _param = self._subscribe_serialize(
             subscribe_request=subscribe_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -778,7 +778,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def subscribe_v1_site_subscribe_post_without_preload_content(
+    def subscribe_without_preload_content(
         self,
         subscribe_request: SubscribeRequest,
         _request_timeout: Union[
@@ -822,7 +822,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._subscribe_v1_site_subscribe_post_serialize(
+        _param = self._subscribe_serialize(
             subscribe_request=subscribe_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -847,7 +847,7 @@ class V1SiteApi:
         return response_data.response
 
 
-    def _subscribe_v1_site_subscribe_post_serialize(
+    def _subscribe_serialize(
         self,
         subscribe_request,
         _request_auth,
@@ -924,7 +924,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def unsubscribe_v1_site_unsubscribe_post(
+    def unsubscribe(
         self,
         subscription_token_request: SubscriptionTokenRequest,
         _request_timeout: Union[
@@ -968,7 +968,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._unsubscribe_v1_site_unsubscribe_post_serialize(
+        _param = self._unsubscribe_serialize(
             subscription_token_request=subscription_token_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -998,7 +998,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def unsubscribe_v1_site_unsubscribe_post_with_http_info(
+    def unsubscribe_with_http_info(
         self,
         subscription_token_request: SubscriptionTokenRequest,
         _request_timeout: Union[
@@ -1042,7 +1042,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._unsubscribe_v1_site_unsubscribe_post_serialize(
+        _param = self._unsubscribe_serialize(
             subscription_token_request=subscription_token_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1072,7 +1072,7 @@ class V1SiteApi:
 
 
     @validate_call
-    def unsubscribe_v1_site_unsubscribe_post_without_preload_content(
+    def unsubscribe_without_preload_content(
         self,
         subscription_token_request: SubscriptionTokenRequest,
         _request_timeout: Union[
@@ -1116,7 +1116,7 @@ class V1SiteApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._unsubscribe_v1_site_unsubscribe_post_serialize(
+        _param = self._unsubscribe_serialize(
             subscription_token_request=subscription_token_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1141,7 +1141,7 @@ class V1SiteApi:
         return response_data.response
 
 
-    def _unsubscribe_v1_site_unsubscribe_post_serialize(
+    def _unsubscribe_serialize(
         self,
         subscription_token_request,
         _request_auth,

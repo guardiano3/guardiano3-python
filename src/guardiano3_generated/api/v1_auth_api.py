@@ -53,7 +53,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def change_password_v1_auth_password_post(
+    def change_password(
         self,
         password_change_request: PasswordChangeRequest,
         _request_timeout: Union[
@@ -97,7 +97,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._change_password_v1_auth_password_post_serialize(
+        _param = self._change_password_serialize(
             password_change_request=password_change_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -127,7 +127,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def change_password_v1_auth_password_post_with_http_info(
+    def change_password_with_http_info(
         self,
         password_change_request: PasswordChangeRequest,
         _request_timeout: Union[
@@ -171,7 +171,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._change_password_v1_auth_password_post_serialize(
+        _param = self._change_password_serialize(
             password_change_request=password_change_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -201,7 +201,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def change_password_v1_auth_password_post_without_preload_content(
+    def change_password_without_preload_content(
         self,
         password_change_request: PasswordChangeRequest,
         _request_timeout: Union[
@@ -245,7 +245,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._change_password_v1_auth_password_post_serialize(
+        _param = self._change_password_serialize(
             password_change_request=password_change_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -270,7 +270,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _change_password_v1_auth_password_post_serialize(
+    def _change_password_serialize(
         self,
         password_change_request,
         _request_auth,
@@ -348,7 +348,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def confirm_email_change_v1_auth_email_confirm_post(
+    def confirm_email_change(
         self,
         token_only_request: TokenOnlyRequest,
         _request_timeout: Union[
@@ -392,7 +392,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_email_change_v1_auth_email_confirm_post_serialize(
+        _param = self._confirm_email_change_serialize(
             token_only_request=token_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -422,7 +422,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def confirm_email_change_v1_auth_email_confirm_post_with_http_info(
+    def confirm_email_change_with_http_info(
         self,
         token_only_request: TokenOnlyRequest,
         _request_timeout: Union[
@@ -466,7 +466,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_email_change_v1_auth_email_confirm_post_serialize(
+        _param = self._confirm_email_change_serialize(
             token_only_request=token_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -496,7 +496,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def confirm_email_change_v1_auth_email_confirm_post_without_preload_content(
+    def confirm_email_change_without_preload_content(
         self,
         token_only_request: TokenOnlyRequest,
         _request_timeout: Union[
@@ -540,7 +540,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_email_change_v1_auth_email_confirm_post_serialize(
+        _param = self._confirm_email_change_serialize(
             token_only_request=token_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -565,7 +565,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _confirm_email_change_v1_auth_email_confirm_post_serialize(
+    def _confirm_email_change_serialize(
         self,
         token_only_request,
         _request_auth,
@@ -642,7 +642,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def confirm_password_reset_v1_auth_password_reset_confirm_post(
+    def confirm_password_reset(
         self,
         password_reset_confirm_request: PasswordResetConfirmRequest,
         _request_timeout: Union[
@@ -686,7 +686,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_password_reset_v1_auth_password_reset_confirm_post_serialize(
+        _param = self._confirm_password_reset_serialize(
             password_reset_confirm_request=password_reset_confirm_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -716,7 +716,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def confirm_password_reset_v1_auth_password_reset_confirm_post_with_http_info(
+    def confirm_password_reset_with_http_info(
         self,
         password_reset_confirm_request: PasswordResetConfirmRequest,
         _request_timeout: Union[
@@ -760,7 +760,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_password_reset_v1_auth_password_reset_confirm_post_serialize(
+        _param = self._confirm_password_reset_serialize(
             password_reset_confirm_request=password_reset_confirm_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -790,7 +790,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def confirm_password_reset_v1_auth_password_reset_confirm_post_without_preload_content(
+    def confirm_password_reset_without_preload_content(
         self,
         password_reset_confirm_request: PasswordResetConfirmRequest,
         _request_timeout: Union[
@@ -834,7 +834,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._confirm_password_reset_v1_auth_password_reset_confirm_post_serialize(
+        _param = self._confirm_password_reset_serialize(
             password_reset_confirm_request=password_reset_confirm_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -859,7 +859,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _confirm_password_reset_v1_auth_password_reset_confirm_post_serialize(
+    def _confirm_password_reset_serialize(
         self,
         password_reset_confirm_request,
         _request_auth,
@@ -936,7 +936,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def delete_account_v1_auth_delete_account_post(
+    def delete_account(
         self,
         account_delete_request: AccountDeleteRequest,
         _request_timeout: Union[
@@ -980,7 +980,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_account_v1_auth_delete_account_post_serialize(
+        _param = self._delete_account_serialize(
             account_delete_request=account_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1010,7 +1010,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def delete_account_v1_auth_delete_account_post_with_http_info(
+    def delete_account_with_http_info(
         self,
         account_delete_request: AccountDeleteRequest,
         _request_timeout: Union[
@@ -1054,7 +1054,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_account_v1_auth_delete_account_post_serialize(
+        _param = self._delete_account_serialize(
             account_delete_request=account_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1084,7 +1084,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def delete_account_v1_auth_delete_account_post_without_preload_content(
+    def delete_account_without_preload_content(
         self,
         account_delete_request: AccountDeleteRequest,
         _request_timeout: Union[
@@ -1128,7 +1128,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_account_v1_auth_delete_account_post_serialize(
+        _param = self._delete_account_serialize(
             account_delete_request=account_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1153,7 +1153,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _delete_account_v1_auth_delete_account_post_serialize(
+    def _delete_account_serialize(
         self,
         account_delete_request,
         _request_auth,
@@ -1231,7 +1231,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def google_auth_v1_auth_google_post(
+    def google_auth(
         self,
         google_auth_request: GoogleAuthRequest,
         _request_timeout: Union[
@@ -1274,7 +1274,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._google_auth_v1_auth_google_post_serialize(
+        _param = self._google_auth_serialize(
             google_auth_request=google_auth_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1304,7 +1304,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def google_auth_v1_auth_google_post_with_http_info(
+    def google_auth_with_http_info(
         self,
         google_auth_request: GoogleAuthRequest,
         _request_timeout: Union[
@@ -1347,7 +1347,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._google_auth_v1_auth_google_post_serialize(
+        _param = self._google_auth_serialize(
             google_auth_request=google_auth_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1377,7 +1377,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def google_auth_v1_auth_google_post_without_preload_content(
+    def google_auth_without_preload_content(
         self,
         google_auth_request: GoogleAuthRequest,
         _request_timeout: Union[
@@ -1420,7 +1420,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._google_auth_v1_auth_google_post_serialize(
+        _param = self._google_auth_serialize(
             google_auth_request=google_auth_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1445,7 +1445,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _google_auth_v1_auth_google_post_serialize(
+    def _google_auth_serialize(
         self,
         google_auth_request,
         _request_auth,
@@ -1522,7 +1522,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def list_sessions_v1_auth_sessions_get(
+    def list_sessions(
         self,
         _request_timeout: Union[
             None,
@@ -1562,7 +1562,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_sessions_v1_auth_sessions_get_serialize(
+        _param = self._list_sessions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1591,7 +1591,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def list_sessions_v1_auth_sessions_get_with_http_info(
+    def list_sessions_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1631,7 +1631,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_sessions_v1_auth_sessions_get_serialize(
+        _param = self._list_sessions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1660,7 +1660,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def list_sessions_v1_auth_sessions_get_without_preload_content(
+    def list_sessions_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1700,7 +1700,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_sessions_v1_auth_sessions_get_serialize(
+        _param = self._list_sessions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1724,7 +1724,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _list_sessions_v1_auth_sessions_get_serialize(
+    def _list_sessions_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1786,7 +1786,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def login_v1_auth_login_post(
+    def login(
         self,
         login_request: LoginRequest,
         _request_timeout: Union[
@@ -1829,7 +1829,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._login_v1_auth_login_post_serialize(
+        _param = self._login_serialize(
             login_request=login_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1859,7 +1859,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def login_v1_auth_login_post_with_http_info(
+    def login_with_http_info(
         self,
         login_request: LoginRequest,
         _request_timeout: Union[
@@ -1902,7 +1902,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._login_v1_auth_login_post_serialize(
+        _param = self._login_serialize(
             login_request=login_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1932,7 +1932,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def login_v1_auth_login_post_without_preload_content(
+    def login_without_preload_content(
         self,
         login_request: LoginRequest,
         _request_timeout: Union[
@@ -1975,7 +1975,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._login_v1_auth_login_post_serialize(
+        _param = self._login_serialize(
             login_request=login_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2000,7 +2000,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _login_v1_auth_login_post_serialize(
+    def _login_serialize(
         self,
         login_request,
         _request_auth,
@@ -2077,7 +2077,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def logout_v1_auth_logout_post(
+    def logout(
         self,
         logout_request: LogoutRequest,
         _request_timeout: Union[
@@ -2120,7 +2120,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._logout_v1_auth_logout_post_serialize(
+        _param = self._logout_serialize(
             logout_request=logout_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2150,7 +2150,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def logout_v1_auth_logout_post_with_http_info(
+    def logout_with_http_info(
         self,
         logout_request: LogoutRequest,
         _request_timeout: Union[
@@ -2193,7 +2193,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._logout_v1_auth_logout_post_serialize(
+        _param = self._logout_serialize(
             logout_request=logout_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2223,7 +2223,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def logout_v1_auth_logout_post_without_preload_content(
+    def logout_without_preload_content(
         self,
         logout_request: LogoutRequest,
         _request_timeout: Union[
@@ -2266,7 +2266,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._logout_v1_auth_logout_post_serialize(
+        _param = self._logout_serialize(
             logout_request=logout_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2291,7 +2291,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _logout_v1_auth_logout_post_serialize(
+    def _logout_serialize(
         self,
         logout_request,
         _request_auth,
@@ -2369,7 +2369,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def me_v1_auth_me_get(
+    def me(
         self,
         _request_timeout: Union[
             None,
@@ -2409,7 +2409,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._me_v1_auth_me_get_serialize(
+        _param = self._me_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2438,7 +2438,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def me_v1_auth_me_get_with_http_info(
+    def me_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2478,7 +2478,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._me_v1_auth_me_get_serialize(
+        _param = self._me_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2507,7 +2507,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def me_v1_auth_me_get_without_preload_content(
+    def me_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2547,7 +2547,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._me_v1_auth_me_get_serialize(
+        _param = self._me_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2571,7 +2571,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _me_v1_auth_me_get_serialize(
+    def _me_serialize(
         self,
         _request_auth,
         _content_type,
@@ -2633,7 +2633,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def refresh_v1_auth_refresh_post(
+    def refresh(
         self,
         refresh_request: RefreshRequest,
         _request_timeout: Union[
@@ -2677,7 +2677,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._refresh_v1_auth_refresh_post_serialize(
+        _param = self._refresh_serialize(
             refresh_request=refresh_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2707,7 +2707,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def refresh_v1_auth_refresh_post_with_http_info(
+    def refresh_with_http_info(
         self,
         refresh_request: RefreshRequest,
         _request_timeout: Union[
@@ -2751,7 +2751,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._refresh_v1_auth_refresh_post_serialize(
+        _param = self._refresh_serialize(
             refresh_request=refresh_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2781,7 +2781,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def refresh_v1_auth_refresh_post_without_preload_content(
+    def refresh_without_preload_content(
         self,
         refresh_request: RefreshRequest,
         _request_timeout: Union[
@@ -2825,7 +2825,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._refresh_v1_auth_refresh_post_serialize(
+        _param = self._refresh_serialize(
             refresh_request=refresh_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2850,7 +2850,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _refresh_v1_auth_refresh_post_serialize(
+    def _refresh_serialize(
         self,
         refresh_request,
         _request_auth,
@@ -2927,7 +2927,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def register_v1_auth_register_post(
+    def register(
         self,
         register_request: RegisterRequest,
         _request_timeout: Union[
@@ -2971,7 +2971,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._register_v1_auth_register_post_serialize(
+        _param = self._register_serialize(
             register_request=register_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3001,7 +3001,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def register_v1_auth_register_post_with_http_info(
+    def register_with_http_info(
         self,
         register_request: RegisterRequest,
         _request_timeout: Union[
@@ -3045,7 +3045,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._register_v1_auth_register_post_serialize(
+        _param = self._register_serialize(
             register_request=register_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3075,7 +3075,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def register_v1_auth_register_post_without_preload_content(
+    def register_without_preload_content(
         self,
         register_request: RegisterRequest,
         _request_timeout: Union[
@@ -3119,7 +3119,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._register_v1_auth_register_post_serialize(
+        _param = self._register_serialize(
             register_request=register_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3144,7 +3144,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _register_v1_auth_register_post_serialize(
+    def _register_serialize(
         self,
         register_request,
         _request_auth,
@@ -3221,7 +3221,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def request_email_change_v1_auth_email_post(
+    def request_email_change(
         self,
         email_change_request: EmailChangeRequest,
         _request_timeout: Union[
@@ -3265,7 +3265,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._request_email_change_v1_auth_email_post_serialize(
+        _param = self._request_email_change_serialize(
             email_change_request=email_change_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3295,7 +3295,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def request_email_change_v1_auth_email_post_with_http_info(
+    def request_email_change_with_http_info(
         self,
         email_change_request: EmailChangeRequest,
         _request_timeout: Union[
@@ -3339,7 +3339,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._request_email_change_v1_auth_email_post_serialize(
+        _param = self._request_email_change_serialize(
             email_change_request=email_change_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3369,7 +3369,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def request_email_change_v1_auth_email_post_without_preload_content(
+    def request_email_change_without_preload_content(
         self,
         email_change_request: EmailChangeRequest,
         _request_timeout: Union[
@@ -3413,7 +3413,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._request_email_change_v1_auth_email_post_serialize(
+        _param = self._request_email_change_serialize(
             email_change_request=email_change_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3438,7 +3438,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _request_email_change_v1_auth_email_post_serialize(
+    def _request_email_change_serialize(
         self,
         email_change_request,
         _request_auth,
@@ -3516,7 +3516,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def request_password_reset_v1_auth_password_reset_post(
+    def request_password_reset(
         self,
         email_only_request: EmailOnlyRequest,
         _request_timeout: Union[
@@ -3559,7 +3559,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._request_password_reset_v1_auth_password_reset_post_serialize(
+        _param = self._request_password_reset_serialize(
             email_only_request=email_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3589,7 +3589,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def request_password_reset_v1_auth_password_reset_post_with_http_info(
+    def request_password_reset_with_http_info(
         self,
         email_only_request: EmailOnlyRequest,
         _request_timeout: Union[
@@ -3632,7 +3632,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._request_password_reset_v1_auth_password_reset_post_serialize(
+        _param = self._request_password_reset_serialize(
             email_only_request=email_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3662,7 +3662,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def request_password_reset_v1_auth_password_reset_post_without_preload_content(
+    def request_password_reset_without_preload_content(
         self,
         email_only_request: EmailOnlyRequest,
         _request_timeout: Union[
@@ -3705,7 +3705,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._request_password_reset_v1_auth_password_reset_post_serialize(
+        _param = self._request_password_reset_serialize(
             email_only_request=email_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3730,7 +3730,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _request_password_reset_v1_auth_password_reset_post_serialize(
+    def _request_password_reset_serialize(
         self,
         email_only_request,
         _request_auth,
@@ -3807,7 +3807,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def resend_verification_v1_auth_resend_verification_post(
+    def resend_verification(
         self,
         email_only_request: EmailOnlyRequest,
         _request_timeout: Union[
@@ -3850,7 +3850,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._resend_verification_v1_auth_resend_verification_post_serialize(
+        _param = self._resend_verification_serialize(
             email_only_request=email_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3880,7 +3880,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def resend_verification_v1_auth_resend_verification_post_with_http_info(
+    def resend_verification_with_http_info(
         self,
         email_only_request: EmailOnlyRequest,
         _request_timeout: Union[
@@ -3923,7 +3923,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._resend_verification_v1_auth_resend_verification_post_serialize(
+        _param = self._resend_verification_serialize(
             email_only_request=email_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3953,7 +3953,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def resend_verification_v1_auth_resend_verification_post_without_preload_content(
+    def resend_verification_without_preload_content(
         self,
         email_only_request: EmailOnlyRequest,
         _request_timeout: Union[
@@ -3996,7 +3996,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._resend_verification_v1_auth_resend_verification_post_serialize(
+        _param = self._resend_verification_serialize(
             email_only_request=email_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4021,7 +4021,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _resend_verification_v1_auth_resend_verification_post_serialize(
+    def _resend_verification_serialize(
         self,
         email_only_request,
         _request_auth,
@@ -4098,7 +4098,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def revoke_other_sessions_v1_auth_sessions_delete(
+    def revoke_other_sessions(
         self,
         _request_timeout: Union[
             None,
@@ -4139,7 +4139,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._revoke_other_sessions_v1_auth_sessions_delete_serialize(
+        _param = self._revoke_other_sessions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4168,7 +4168,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def revoke_other_sessions_v1_auth_sessions_delete_with_http_info(
+    def revoke_other_sessions_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -4209,7 +4209,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._revoke_other_sessions_v1_auth_sessions_delete_serialize(
+        _param = self._revoke_other_sessions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4238,7 +4238,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def revoke_other_sessions_v1_auth_sessions_delete_without_preload_content(
+    def revoke_other_sessions_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -4279,7 +4279,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._revoke_other_sessions_v1_auth_sessions_delete_serialize(
+        _param = self._revoke_other_sessions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4303,7 +4303,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _revoke_other_sessions_v1_auth_sessions_delete_serialize(
+    def _revoke_other_sessions_serialize(
         self,
         _request_auth,
         _content_type,
@@ -4365,7 +4365,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def revoke_session_v1_auth_sessions_session_id_delete(
+    def revoke_session(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -4408,7 +4408,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._revoke_session_v1_auth_sessions_session_id_delete_serialize(
+        _param = self._revoke_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4439,7 +4439,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def revoke_session_v1_auth_sessions_session_id_delete_with_http_info(
+    def revoke_session_with_http_info(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -4482,7 +4482,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._revoke_session_v1_auth_sessions_session_id_delete_serialize(
+        _param = self._revoke_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4513,7 +4513,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def revoke_session_v1_auth_sessions_session_id_delete_without_preload_content(
+    def revoke_session_without_preload_content(
         self,
         session_id: StrictStr,
         _request_timeout: Union[
@@ -4556,7 +4556,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._revoke_session_v1_auth_sessions_session_id_delete_serialize(
+        _param = self._revoke_session_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4582,7 +4582,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _revoke_session_v1_auth_sessions_session_id_delete_serialize(
+    def _revoke_session_serialize(
         self,
         session_id,
         _request_auth,
@@ -4647,7 +4647,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def verify_email_v1_auth_verify_email_post(
+    def verify_email(
         self,
         token_only_request: TokenOnlyRequest,
         _request_timeout: Union[
@@ -4690,7 +4690,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_email_v1_auth_verify_email_post_serialize(
+        _param = self._verify_email_serialize(
             token_only_request=token_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4720,7 +4720,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def verify_email_v1_auth_verify_email_post_with_http_info(
+    def verify_email_with_http_info(
         self,
         token_only_request: TokenOnlyRequest,
         _request_timeout: Union[
@@ -4763,7 +4763,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_email_v1_auth_verify_email_post_serialize(
+        _param = self._verify_email_serialize(
             token_only_request=token_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4793,7 +4793,7 @@ class V1AuthApi:
 
 
     @validate_call
-    def verify_email_v1_auth_verify_email_post_without_preload_content(
+    def verify_email_without_preload_content(
         self,
         token_only_request: TokenOnlyRequest,
         _request_timeout: Union[
@@ -4836,7 +4836,7 @@ class V1AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_email_v1_auth_verify_email_post_serialize(
+        _param = self._verify_email_serialize(
             token_only_request=token_only_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4861,7 +4861,7 @@ class V1AuthApi:
         return response_data.response
 
 
-    def _verify_email_v1_auth_verify_email_post_serialize(
+    def _verify_email_serialize(
         self,
         token_only_request,
         _request_auth,
