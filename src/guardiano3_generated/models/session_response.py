@@ -3,7 +3,7 @@
 """
     GuardianO3 API
 
-    Real-time scam detection for phone calls.  Authenticate with a user access token or an API key; both are sent as `Authorization: Bearer <value>` and are distinguished by the `go3_` key prefix.  Errors share one envelope -- branch on `error.code`, never on `error.message`. Every response carries `X-Request-Id`; quote it in bug reports.  **Live-call channels** (`/v1/sessions/{session_id}/audio` and `/v1/sessions/{session_id}/stream`) use WebSocket, not HTTP. They are not listed under `paths` because OpenAPI 3.x has no first-class WebSocket support; their frame shapes and close codes are declared in the `x-websockets` extension at the top level of this document.
+    Real-time scam detection for audio and text.  Authenticate with a user access token or an API key; both are sent as `Authorization: Bearer <value>` and are distinguished by the `go3_` key prefix.  Errors share one envelope -- branch on `error.code`, never on `error.message`. Every response carries `X-Request-Id`; quote it in bug reports.  **Live session channels** (`/v1/sessions/{session_id}/audio` and `/v1/sessions/{session_id}/stream`) use WebSocket, not HTTP. They are not listed under `paths` because OpenAPI 3.x has no first-class WebSocket support; their frame shapes and close codes are declared in the `x-websockets` extension at the top level of this document.
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@guardiano3.com
@@ -30,11 +30,11 @@ class SessionResponse(BaseModel):
     SessionResponse
     """ # noqa: E501
     detected_keywords: Optional[List[StrictStr]] = Field(default=None, alias="detectedKeywords")
-    direction: StrictStr
+    direction: Optional[StrictStr] = None
     duration: StrictInt
     fraud_type: Optional[StrictStr] = Field(default=None, alias="fraudType")
     id: StrictStr
-    phone_number: StrictStr = Field(alias="phoneNumber")
+    phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber")
     risk_level: RiskLevel = Field(alias="riskLevel")
     risk_score: Union[StrictFloat, StrictInt] = Field(alias="riskScore")
     summary: Optional[StrictStr] = None
@@ -81,10 +81,20 @@ class SessionResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if direction (nullable) is None
+        # and model_fields_set contains the field
+        if self.direction is None and "direction" in self.model_fields_set:
+            _dict['direction'] = None
+
         # set to None if fraud_type (nullable) is None
         # and model_fields_set contains the field
         if self.fraud_type is None and "fraud_type" in self.model_fields_set:
             _dict['fraudType'] = None
+
+        # set to None if phone_number (nullable) is None
+        # and model_fields_set contains the field
+        if self.phone_number is None and "phone_number" in self.model_fields_set:
+            _dict['phoneNumber'] = None
 
         # set to None if summary (nullable) is None
         # and model_fields_set contains the field
