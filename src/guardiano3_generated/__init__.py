@@ -103,6 +103,7 @@ __all__ = [
     "SessionListResponse",
     "SessionResponse",
     "SiteAcceptedResponse",
+    "SiteFeedbackRequest",
     "SubscribeRequest",
     "SubscriptionStatusResponse",
     "SubscriptionTokenRequest",
@@ -210,6 +211,7 @@ if __import__("typing").TYPE_CHECKING:
     from guardiano3_generated.models.session_list_response import SessionListResponse as SessionListResponse
     from guardiano3_generated.models.session_response import SessionResponse as SessionResponse
     from guardiano3_generated.models.site_accepted_response import SiteAcceptedResponse as SiteAcceptedResponse
+    from guardiano3_generated.models.site_feedback_request import SiteFeedbackRequest as SiteFeedbackRequest
     from guardiano3_generated.models.subscribe_request import SubscribeRequest as SubscribeRequest
     from guardiano3_generated.models.subscription_status_response import SubscriptionStatusResponse as SubscriptionStatusResponse
     from guardiano3_generated.models.subscription_token_request import SubscriptionTokenRequest as SubscriptionTokenRequest
@@ -323,6 +325,7 @@ from guardiano3_generated.models.session_created_response import SessionCreatedR
 from guardiano3_generated.models.session_list_response import SessionListResponse as SessionListResponse
 from guardiano3_generated.models.session_response import SessionResponse as SessionResponse
 from guardiano3_generated.models.site_accepted_response import SiteAcceptedResponse as SiteAcceptedResponse
+from guardiano3_generated.models.site_feedback_request import SiteFeedbackRequest as SiteFeedbackRequest
 from guardiano3_generated.models.subscribe_request import SubscribeRequest as SubscribeRequest
 from guardiano3_generated.models.subscription_status_response import SubscriptionStatusResponse as SubscriptionStatusResponse
 from guardiano3_generated.models.subscription_token_request import SubscriptionTokenRequest as SubscriptionTokenRequest

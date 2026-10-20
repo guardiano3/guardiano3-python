@@ -82,6 +82,7 @@ if __import__("typing").TYPE_CHECKING:
     from guardiano3_generated.models.session_list_response import SessionListResponse
     from guardiano3_generated.models.session_response import SessionResponse
     from guardiano3_generated.models.site_accepted_response import SiteAcceptedResponse
+    from guardiano3_generated.models.site_feedback_request import SiteFeedbackRequest
     from guardiano3_generated.models.subscribe_request import SubscribeRequest
     from guardiano3_generated.models.subscription_status_response import SubscriptionStatusResponse
     from guardiano3_generated.models.subscription_token_request import SubscriptionTokenRequest
@@ -171,6 +172,7 @@ from guardiano3_generated.models.session_created_response import SessionCreatedR
 from guardiano3_generated.models.session_list_response import SessionListResponse
 from guardiano3_generated.models.session_response import SessionResponse
 from guardiano3_generated.models.site_accepted_response import SiteAcceptedResponse
+from guardiano3_generated.models.site_feedback_request import SiteFeedbackRequest
 from guardiano3_generated.models.subscribe_request import SubscribeRequest
 from guardiano3_generated.models.subscription_status_response import SubscriptionStatusResponse
 from guardiano3_generated.models.subscription_token_request import SubscriptionTokenRequest
